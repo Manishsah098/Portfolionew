@@ -1,0 +1,166 @@
+/* --- Google Fonts Import (Poppins) --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 05;
+    padding: 10;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    scroll-behavior: smooth;
+}
+
+/* --- Global Variables and Base Styles --- */
+:root {
+    --bg-color: #1f242d; /* Dark background */
+    --second-bg-color: #323946; /* Slightly lighter dark color */
+    --text-color:white; /* White text */
+    --main-color: #0ef; /* Cyan accent color */
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+
+
+}
+
+.tab-content {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+    display: none; 
+}
+
+/* Base style for the content that is shown */
+.tab-content.active {
+    display: flex; /* Show the content */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Default stack for inner sections */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: default;
+}
+
+.navbar a {
+    font-size: 1.7rem;
+    color: var(blue);
+    margin-left: 4rem;
+    transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+}
+
+#home-section.active {
+    display: flex; /* Keep the home section as a row (side-by-side) */
+    flex-direction: row;
+    padding-top: 5rem; /* Adjust padding due to sticky header */
+}
+
+.home-content h3 {
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+/* ... (Rest of .home-content styling for h1, h3 span, p, social-media, btn) ... */
+
+/* --- Hexagonal Image Container --- */
+.home-img {
+    position: relative;
+    width: 400px; 
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hexagon-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    overflow: hidden; 
+}
+
+.hexagon-container img {
+    width: ;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Glowing Border Effect */
+.home-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: var(--main-color);
+    z-index: -1; 
+    box-shadow: 0 0 5rem var(--main-color);
+    animation: glow-pulse 3s infinite alternate;
+}
+
+@keyframes glow-pulse {
+    from { box-shadow: 0 0 2rem var(--main-color); }
+    to { box-shadow: 0 0 5rem var(--main-color), 0 0 10rem var(--main-color); }
+}
+
+/* --- Inner Section Styles (About, Skills, Portfolio, Contact) --- */
+.heading {
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.heading span {
+    color: var(white);
+}
+
+#about-section p, #skills-section ul, #portfolio-section .project-card {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+#skills-section ul {
+    list-style: none;
+    padding: 0;
+}
+#skills-section ul li {
+    background: var(yellow);
+    margin: 1rem auto;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    width: 300px;
+    text-align: left;
+    transition: 0.3s;
+}
+#skills-section ul li:hover {
+    background: var();
+    color: var(white);
+}
